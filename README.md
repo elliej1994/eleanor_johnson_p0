@@ -1,5 +1,5 @@
 # eleanor_johnson_p0
-Project0 : Console Banking app 
+#Project0 : Console Banking app 
 
 
 As a user, I can:
