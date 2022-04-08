@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AccountDao {
    //Create
-    Account registerAccount(Account account);
+    Account  createAccount(Account account);
     //Read
     Account getAccountInfoById(int id);
     List<Account> getAllAccountInfo();
