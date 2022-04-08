@@ -9,7 +9,7 @@ import java.sql.Connection;
 public class ConnectionTests {
 
     @Test
-    void can_connect(){
+     public void can_connect(){
         Connection conn = ConnectionUtil.createConnection();
         Assertions.assertNotNull(conn);
     }

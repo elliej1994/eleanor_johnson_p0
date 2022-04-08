@@ -14,9 +14,7 @@ public class ConnectionUtil {
                 e.printStackTrace();
                 return null;
             }
-
         }
     }
 
-
-    //"jdbc:postgresql://johnson-db.cwrqnnecy1to.us-east-2.rds.amazonaws.com/librarydb?user=postgres&password=!pinkkeyboardwithRBG?"
+//johnson-db.cbn3pfkjnp4z.us-east-1.rds.amazonaws.com
