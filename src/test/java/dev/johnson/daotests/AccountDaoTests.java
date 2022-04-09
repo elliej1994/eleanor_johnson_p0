@@ -20,5 +20,13 @@ public class AccountDaoTests {
         Assertions.assertNotEquals(0,savedAccount.getAccountId());
     }
 
+    @Test
+    public void get_account_info_by_id_test(){
+        Account retrievedAccount = accountDao.getAccountInfoById(testAccount.getAccountId());
+        System.out.println(retrievedAccount);
+        Assertions.assertNotEquals(0,retrievedAccount.getAccountId());
+
+
+    }
 
 }

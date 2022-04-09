@@ -36,10 +36,24 @@ public class AccountDaoImpl implements AccountDao {
     public Account getAccountInfoById(int id) {
 
 
+        try {
+            Connection conn = ConnectionUtil.createConnection();
+            String sql = "select * from account where account_id = ?"; // select * from users left join account etc etc
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,id);
 
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            Account account = new Account();
+            account.setAccountId(rs.getInt("account_id"));
+            account.setBalance(rs.getFloat("balance"));
+            account.setSavingsBalance(rs.getFloat("savings_balance"));
+            return account;
 
-
-        return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

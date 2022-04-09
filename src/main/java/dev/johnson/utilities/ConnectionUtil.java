@@ -8,7 +8,7 @@ public class ConnectionUtil {
     public static Connection createConnection(){
 
             try {
-                Connection conn = DriverManager.getConnection(System.getenv("LIBRARYDB"));
+                Connection conn = DriverManager.getConnection("jdbc:postgresql://johnson-db.cbn3pfkjnp4z.us-east-1.rds.amazonaws.com/librarydb?user=postgres&password=!pinkkeyboardwithRBG?");
                 return conn;
             } catch (SQLException e) {
                 e.printStackTrace();

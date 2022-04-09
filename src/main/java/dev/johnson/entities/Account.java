@@ -7,7 +7,6 @@ import java.util.Objects;
 public class Account {
 
     private Integer accountId;
-
     private Float balance;
     private Float savingsBalance;
     private List<Account> accountList;
