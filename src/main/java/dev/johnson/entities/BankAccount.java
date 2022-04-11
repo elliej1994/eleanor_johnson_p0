@@ -6,25 +6,23 @@ import dev.johnson.data.BankAccountDaoImpl;
 public class BankAccount {
 
     private int accountNo;
-    private Float balance;
-    private String custName;
-    private String custMobileNo;
+    private double balance;
+    private String firstName;
+    private String lastName;
+    private String mobileNo;
     private String userName;
-    private String passWord;
+    private String password;
 
-    //constructors
+
     public BankAccount(){}
-    public BankAccount(int accountNo, Float balance, String custName, String custMobileNo, String userName, String passWord) {
-        this.accountNo = accountNo;
+    public BankAccount(double balance, String firstName, String lastName, String mobileNo, String userName, String password) {
         this.balance = balance;
-        this.custName = custName;
-        this.custMobileNo = custMobileNo;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobileNo = mobileNo;
         this.userName = userName;
-        this.passWord = passWord;
+        this.password = password;
     }
-
-    //get/set
-
 
     public int getAccountNo() {
         return accountNo;
@@ -34,28 +32,36 @@ public class BankAccount {
         this.accountNo = accountNo;
     }
 
-    public Float getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(Float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public String getCustName() {
-        return custName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setCustName(String custName) {
-        this.custName = custName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getCustMobileNo() {
-        return custMobileNo;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCustMobileNo(String custMobileNo) {
-        this.custMobileNo = custMobileNo;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
     public String getUserName() {
@@ -66,41 +72,24 @@ public class BankAccount {
         this.userName = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    //overrides
-
 
     @Override
     public String toString() {
         return "BankAccount{" +
                 "accountNo=" + accountNo +
                 ", balance=" + balance +
-                ", custName='" + custName + '\'' +
-                ", custMobileNo='" + custMobileNo + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", mobileNo='" + mobileNo + '\'' +
                 ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
-
-    public void deposit(String userName, float val){
-        if (val > 0){
-            balance += val;
-            setBalance(balance);
-            BankAccountDao bankAccountDao = new BankAccountDaoImpl();
-            bankAccountDao.makeDeposit(userName,val);
-            System.out.println("Your deposit of " +val +" was successful. Your current balance is now: $" +balance);
-        }else {
-            System.out.println("Invalid value, enter a number larger than 0.");
-        }
-
-
-    }
-
 }

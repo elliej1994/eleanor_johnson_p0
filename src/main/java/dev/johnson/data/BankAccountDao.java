@@ -10,22 +10,20 @@ public interface BankAccountDao {
  public BankAccount createBankAccount(BankAccount bankAccount);
 
  //read
-
-
  public BankAccount getBankAccountByMobileNo(String mobileNo);
  public BankAccount getBankAccountByUserName(String userName);
 
  //update
 public BankAccount updateBankAccount(BankAccount bankAccount);
+ public List<BankAccount> getAllBankAccounts();
 
 //delete
- public int deleteUserByAccNo(int accNo);
+ boolean deleteUserByAccNo(int accNo);
 
 
- public void makeDeposit(String userName, float val);
- public void makeWithdrawal(int accNo, float withdrawVal);
 
- public List<BankAccount> getBankAccounts();
+
+
 
 
 

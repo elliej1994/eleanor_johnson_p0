@@ -9,7 +9,8 @@
 create table bankaccountinfo(
 account_no int generated always as identity,
 balance float,
-cust_name varchar(200),
+firstname varchar(50),
+lastname varchar(50),
 cust_mobile_no varchar(30),
 username varchar(20) not null,
 password varchar(20) not null,
