@@ -46,7 +46,7 @@ public class BankAccountDaoImpl implements BankAccountDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, mobileNo);
 
-            ResultSet rs = ps.executeQuery(sql);
+            ResultSet rs = ps.executeQuery();
             while(rs.next()) {
 
                 int accNo = rs.getInt("account_no");
@@ -82,8 +82,19 @@ public class BankAccountDaoImpl implements BankAccountDao {
     }
 
     @Override
-    public void makeDeposit(int accNo, float depositVal) {
+    public void makeDeposit(String userName, float val) {
 
+        try {
+            String sql = "{call makedeposit (?,?)}";
+            Connection conn = ConnectionUtil.createConnection();
+            CallableStatement cs = conn.prepareCall(sql);
+            cs.setString(1,userName);
+            cs.setFloat(2,val);
+            cs.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -95,4 +106,8 @@ public class BankAccountDaoImpl implements BankAccountDao {
     public List<BankAccount> getBankAccounts() {
         return null;
     }
+
+
+
 }
+

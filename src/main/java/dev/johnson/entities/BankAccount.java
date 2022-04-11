@@ -1,5 +1,8 @@
 package dev.johnson.entities;
 
+import dev.johnson.data.BankAccountDao;
+import dev.johnson.data.BankAccountDaoImpl;
+
 public class BankAccount {
 
     private int accountNo;
@@ -85,4 +88,19 @@ public class BankAccount {
                 ", passWord='" + passWord + '\'' +
                 '}';
     }
+
+    public void deposit(String userName, float val){
+        if (val > 0){
+            balance += val;
+            setBalance(balance);
+            BankAccountDao bankAccountDao = new BankAccountDaoImpl();
+            bankAccountDao.makeDeposit(userName,val);
+            System.out.println("Your deposit of " +val +" was successful. Your current balance is now: $" +balance);
+        }else {
+            System.out.println("Invalid value, enter a number larger than 0.");
+        }
+
+
+    }
+
 }

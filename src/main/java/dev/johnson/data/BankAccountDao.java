@@ -22,7 +22,7 @@ public BankAccount updateBankAccount(BankAccount bankAccount);
  public int deleteUserByAccNo(int accNo);
 
 
- public void makeDeposit(int accNo, float depositVal);
+ public void makeDeposit(String userName, float val);
  public void makeWithdrawal(int accNo, float withdrawVal);
 
  public List<BankAccount> getBankAccounts();
