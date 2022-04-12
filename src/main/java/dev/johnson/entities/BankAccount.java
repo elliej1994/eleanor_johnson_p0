@@ -15,6 +15,9 @@ public class BankAccount {
 
 
     public BankAccount(){}
+    public BankAccount(int accNo){
+        this.accountNo = accNo;
+    }
 
     public BankAccount(double balance, String firstName, String lastName, String mobileNo, String userName, String password) {
         this.balance = balance;
@@ -29,8 +32,8 @@ public class BankAccount {
         return accountNo;
     }
 
-    public void setAccountNo(int accountNo) {
-        this.accountNo = accountNo;
+    public void setAccountNo(int accNo) {
+        this.accountNo = accNo;
     }
 
     public double getBalance() {

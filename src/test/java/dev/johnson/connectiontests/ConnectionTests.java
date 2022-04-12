@@ -2,7 +2,7 @@ package dev.johnson.connectiontests;
 
 import dev.johnson.utilities.ConnectionUtil;
 import org.junit.jupiter.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 

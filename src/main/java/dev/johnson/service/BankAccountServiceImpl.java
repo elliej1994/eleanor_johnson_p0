@@ -2,19 +2,21 @@ package dev.johnson.service;
 
 import dev.johnson.data.BankAccountDao;
 import dev.johnson.data.BankAccountDaoImpl;
-import dev.johnson.data.TransactionDetailsDao;
-import dev.johnson.data.TransactionDetailsDaoImpl;
 import dev.johnson.entities.BankAccount;
-import dev.johnson.entities.TransactionDetails;
+import dev.johnson.utilities.List;
 
 public class BankAccountServiceImpl implements BankAccountService{
-    BankAccountDao bankAccountDao = new BankAccountDaoImpl();
-    TransactionDetailsDao transactionDetailsDao = new TransactionDetailsDaoImpl();
+
+   private BankAccountDao bankAccountDao;
+
+
+    public BankAccountServiceImpl(BankAccountDaoImpl bankAccountDao) {
+        this.bankAccountDao = bankAccountDao;
+    }
 
 
     @Override
     public BankAccount createBankAccount(double balance, String firstName, String lastName, String mobileNo, String userName, String password) {
-
 
         BankAccount bankAccount = new BankAccount(balance,firstName,lastName,mobileNo,userName,password);
         bankAccount =  bankAccountDao.createBankAccount(bankAccount);
@@ -24,7 +26,7 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 
     @Override
-    public BankAccount makeDeposit(BankAccount bankAccount, double valToDeposit, String dateOfTrans, String typeOfTrans, double transAmt) {
+    public BankAccount makeDeposit(BankAccount bankAccount, double valToDeposit) {
 
         //utilizing earlier dreated bankAccount isnt to set the balance by calling the get bal then adding the double passed in,
         //then using the dataobject to apply the updated features in this case simply updating the
@@ -33,18 +35,36 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 
         return bankAccount;
-
-
-
     }
 
     @Override
     public BankAccount makeWithdrawal(BankAccount bankAccount, double valToWithdraw) {
-        return null;
+            bankAccount.setBalance(bankAccount.getBalance()- valToWithdraw);
+            bankAccount = bankAccountDao.updateBankAccount(bankAccount);
+
+        return bankAccount;
+    }
+
+    @Override
+    public boolean login(String userName) {
+        return bankAccountDao.getLogin(userName);
+    }
+
+    @Override
+    public BankAccount login(String userName, String password) {
+
+        return bankAccountDao.getBankAccountByAccNo(bankAccountDao.getLogin(userName, password));
     }
 
     @Override
     public void printBalance(BankAccount bankAccount) {
+        System.out.println("Your balance is " + bankAccount.getBalance() + " and your account number is "+ bankAccount.getAccountNo());
 
     }
+
+    @Override
+    public List<BankAccount> getAllAccounts(int accNo) {
+        return bankAccountDao.getAllAccounts(accNo);
+    }
+
 }
