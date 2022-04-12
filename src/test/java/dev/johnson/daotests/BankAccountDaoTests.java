@@ -20,7 +20,7 @@ public class BankAccountDaoTests {
     @Order(1)
    public void create_account_test(){
 
-        BankAccount sample = new BankAccount(50.75,"Jane","Doe","555-555-5555", "jdee67", "pass1234");
+        BankAccount sample = new BankAccount(50.75,"Joe","Dirt","555-555-5555", "jdirty45", "pass1234");
         BankAccount savedAccount = accountDao.createBankAccount(sample);
         BankAccountDaoTests.testAccount = savedAccount;
         Assertions.assertNotEquals(0,savedAccount.getAccountNo());
@@ -30,28 +30,17 @@ public class BankAccountDaoTests {
     @Order(2)
     public void get_acc_byMobile_test(){
     BankAccount bankAccount =  accountDao.getBankAccountByMobileNo(testAccount.getMobileNo());
-
-
-    Assertions.assertNotEquals(0,testAccount.getMobileNo());
+    Assertions.assertEquals(bankAccount.getMobileNo(),testAccount.getMobileNo());
 
     }
 
     @Test
     @Order(3)
-    public void get_account_by_userName_test(){
-        BankAccount bankAccount = accountDao.getBankAccountByUserName(testAccount.getUserName());
-        Assertions.assertEquals("Jane",testAccount.getUserName());
+    public void get_account_by_accNo_test(){
+        BankAccount bankAccount = accountDao.getBankAccountByAccNo(testAccount.getAccountNo());
+        Assertions.assertEquals(bankAccount.getAccountNo(),testAccount.getAccountNo());
 
 
     }
-//
-//    @Test
-//    @Order(3)
-//    public void make_deposit_test(){
-//
-//
-//
-//    }
-
 
 }

@@ -11,11 +11,11 @@ public interface BankAccountDao {
 
  //read
  public BankAccount getBankAccountByMobileNo(String mobileNo);
- public BankAccount getBankAccountByUserName(String userName);
+ public BankAccount getBankAccountByAccNo(int accNo);
 
  //update
 public BankAccount updateBankAccount(BankAccount bankAccount);
- public List<BankAccount> getAllBankAccounts();
+
 
 //delete
  boolean deleteUserByAccNo(int accNo);

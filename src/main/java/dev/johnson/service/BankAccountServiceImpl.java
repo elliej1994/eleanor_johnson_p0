@@ -31,12 +31,8 @@ public class BankAccountServiceImpl implements BankAccountService{
        bankAccount.setBalance(bankAccount.getBalance() + valToDeposit);
        bankAccount = bankAccountDao.updateBankAccount(bankAccount);
 
-        TransactionDetails transactionDetails = new TransactionDetails(bankAccount.getAccountNo(),dateOfTrans,typeOfTrans,transAmt);
-        transactionDetails = transactionDetailsDao.createTransactionRecord(transactionDetails);
 
-
-
-       return bankAccount;
+        return bankAccount;
 
 
 

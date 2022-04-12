@@ -23,7 +23,7 @@ public class TransactionDetailServiceTests {
     public void create_transRecord_test()
     {
 
-        testTransaction = transactionDetailsService.createTransactionDetailRecord(1,"March 15, 2022","Deposit",25);
+        testTransaction = transactionDetailsService.createTransactionDetailRecord(6,"March 1, 2022","Deposit",25);
         System.out.println(testTransaction.getAccountNo());
         Assertions.assertNotEquals(0,testTransaction.getAccountNo());
 
