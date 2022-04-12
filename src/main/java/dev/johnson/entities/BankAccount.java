@@ -15,6 +15,7 @@ public class BankAccount {
 
 
     public BankAccount(){}
+
     public BankAccount(double balance, String firstName, String lastName, String mobileNo, String userName, String password) {
         this.balance = balance;
         this.firstName = firstName;

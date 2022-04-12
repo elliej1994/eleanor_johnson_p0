@@ -26,12 +26,24 @@ public class BankAccountDaoTests {
         Assertions.assertNotEquals(0,savedAccount.getAccountNo());
     }
 
-//    @Test
-//    @Order(2)
-//    public void get_account_by_mobileNo_test(){
-//
-//
-//    }
+    @Test
+    @Order(2)
+    public void get_acc_byMobile_test(){
+    BankAccount bankAccount =  accountDao.getBankAccountByMobileNo(testAccount.getMobileNo());
+
+
+    Assertions.assertNotEquals(0,testAccount.getMobileNo());
+
+    }
+
+    @Test
+    @Order(3)
+    public void get_account_by_userName_test(){
+        BankAccount bankAccount = accountDao.getBankAccountByUserName(testAccount.getUserName());
+        Assertions.assertEquals("Jane",testAccount.getUserName());
+
+
+    }
 //
 //    @Test
 //    @Order(3)

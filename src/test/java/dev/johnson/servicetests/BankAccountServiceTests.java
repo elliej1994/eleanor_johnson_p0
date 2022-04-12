@@ -1,4 +1,4 @@
-package dev.johnson.daotests;
+package dev.johnson.servicetests;
 
 import dev.johnson.entities.BankAccount;
 import dev.johnson.entities.TransactionDetails;
