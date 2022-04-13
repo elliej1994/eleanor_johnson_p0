@@ -46,6 +46,15 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
+    public BankAccount getUserNameByMobileNo(String mobileNo) {
+        BankAccount bankAccount = bankAccountDao.getBankAccountByMobileNo(mobileNo);
+
+
+        return bankAccount;
+    }
+
+
+    @Override
     public boolean login(String userName) {
         return bankAccountDao.getLogin(userName);
     }
@@ -63,8 +72,8 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public List<BankAccount> getAllAccounts(int accNo) {
-        return bankAccountDao.getAllAccounts(accNo);
+    public List<BankAccount> getAllAccounts() {
+        return bankAccountDao.getAllAccounts();
     }
 
 }

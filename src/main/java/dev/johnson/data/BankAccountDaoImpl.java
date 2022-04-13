@@ -202,25 +202,25 @@ public class BankAccountDaoImpl implements BankAccountDao {
     }
 
     @Override
-    public List<BankAccount> getAllAccounts(int accNo) {
+    public List<BankAccount> getAllAccounts() {
         try {
             Connection conn = ConnectionUtil.createConnection();
-            String sql = "select * from bankaccount where account_no =?";
+            String sql = "select username from bankaccount ";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, accNo);
-            ps.execute();
+            //ps.setInt(1, accNo);
+            ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             List<BankAccount> accountList = new ArrayList<>();
             while (rs.next()) {
 
             BankAccount bankAccount = null;
-            bankAccount.setAccountNo(rs.getInt("account_no"));
+       /*     bankAccount.setAccountNo(rs.getInt("account_no"));
             bankAccount.setBalance(rs.getDouble("balance"));
             bankAccount.setFirstName(rs.getString("firstname"));
             bankAccount.setLastName(rs.getString("lastname"));
-            bankAccount.setMobileNo(rs.getString("cust_mobile_no"));
+            bankAccount.setMobileNo(rs.getString("cust_mobile_no"));*/
             bankAccount.setUserName(rs.getString("username"));
-            bankAccount.setPassword(rs.getString("password"));
+      //      bankAccount.setPassword(rs.getString("password"));
             accountList.add(bankAccount);
             }
             return accountList;

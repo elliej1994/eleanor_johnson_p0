@@ -11,12 +11,16 @@ public interface BankAccountService {
 
     public BankAccount makeWithdrawal(BankAccount bankAccount, double valToWithdraw);
 
+    public BankAccount getUserNameByMobileNo(String mobileNo);
+
+
+
     boolean login(String userName);
 
     BankAccount login(String userName, String password);
 
     public void printBalance(BankAccount bankAccount);
 
-    List<BankAccount> getAllAccounts (int accNo);
+    List<BankAccount> getAllAccounts ();
 
 }

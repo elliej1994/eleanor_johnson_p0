@@ -22,10 +22,8 @@ public BankAccount updateBankAccount(BankAccount bankAccount);
  boolean getLogin(String userName);
 
 
-List<BankAccount> getAllAccounts(int accNo);
+//List<BankAccount> getAllAccounts(int accNo);
 
 
-
-
-
+ List<BankAccount> getAllAccounts();
 }
